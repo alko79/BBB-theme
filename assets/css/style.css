@@ -1,0 +1,25 @@
+body {
+     display: flex;
+     min-height: 100vh;
+     flex-direction: column;
+     background-image:url("../img/bg.png");
+     }
+
+.pagination li.active { background-color: #0097a7; }
+
+#principale { flex: 1 0 auto; }
+
+.postlist{ border-radius: 1px 10px 10px 10px ; }
+
+.card .card-action a:hover:not(.btn):not(.btn-large):not(.btn-floating) { color: #f57c00; }
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) { color: #0288d1; }
+
+.postimg img {
+              max-width: 100%;
+              height: auto;
+             }
+
+.icon-block { padding: 0 15px; }
+
+.icon-block .material-icons { font-size: inherit; }

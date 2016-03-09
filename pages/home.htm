@@ -1,0 +1,27 @@
+title = "home"
+url = "/"
+layout = "def"
+description = "Welcome to the nextgenfun!"
+hidden = "0"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+==
+
+<div class="row z-depth-2" style="background-color:#005b96;height:60px;">
+ <img src="{{ ('assets/img/intro.png')|theme }}" class="responsive-img" >
+</div>
+<div class="row">
+ <div class="col s12 m9 l9">{% partial 'blog/posts' %}</div>
+ <div class="col s12 m3 l3">{% partial 'blog/categories' %}</div>
+</div>

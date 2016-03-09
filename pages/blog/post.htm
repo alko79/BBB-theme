@@ -1,0 +1,58 @@
+title = "Blog Post"
+url = "/blog/post/:slug"
+layout = "def"
+description = "Viewing a single blog post"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+
+
+==
+
+<?php
+function onEnd()
+{
+    $this->page->title = $this->post->title;
+}?>
+==
+<div class="row white">
+  <div class="col s12 m12 l12">
+    <h1 >{{ post.title }}</h1>
+  </div>
+
+
+    {% if post.featured_images.count %}
+        <div class="responsive-img col s12 m12 l12">
+            {% for image in post.featured_images %}
+                <p>
+                    <img
+                        data-src="{{ image.filename }}"
+                        src="{{ image.path }}"
+                        alt="{{ image.description }}"
+                        style="max-width: 100%" />
+                </p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="content postimg col s12 m12 l12">{{ post.content_html|raw }}</div>    <p class="info">        Posted        {% if post.categories.count %} in            {% for category in post.categories %}                <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}            {% endfor %}        {% endif %}        on {{ post.published_at|date('M d, Y') }}    </p>
+<hr /><div class="container">
+
+
+  <div id="disqus_thread"></div>
+  <script>
+      (function() {  // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+
+          s.src = '//YOURSITEONDISQUS.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+</div>

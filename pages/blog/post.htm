@@ -14,10 +14,10 @@ categoryPage = "blog/category"
 ==
 
 <?php
-function onEnd()
-{
-    $this->page->title = $this->post->title;
-}?>
+function onEnd()
+{
+    $this->page->title = $this->post->title;
+}?>
 ==
 <div class="row white">
   <div class="col s12 m12 l12">
@@ -38,8 +38,11 @@ function onEnd()
             {% endfor %}
         </div>
     {% endif %}
-    <div class="content postimg col s12 m12 l12">{{ post.content_html|raw }}</div>    <p class="info">        Posted        {% if post.categories.count %} in            {% for category in post.categories %}                <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}            {% endfor %}        {% endif %}        on {{ post.published_at|date('M d, Y') }}    </p>
-<hr /><div class="container">
+    <div class="content postimg col s12 m12 l12">{{ post.content_html|raw }}
+
+    <p class="info">        Posted        {% if post.categories.count %} in            {% for category in post.categories %}                <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}            {% endfor %}        {% endif %}        on {{ post.published_at|date('M d, Y') }}    </p><hr />
+    </div>
+<div class="container">
 
 
   <div id="disqus_thread"></div>
@@ -47,7 +50,7 @@ function onEnd()
       (function() {  // DON'T EDIT BELOW THIS LINE
           var d = document, s = d.createElement('script');
 
-          s.src = '//YOURSITEONDISQUS.disqus.com/embed.js';
+          s.src = '//nextgenfun.disqus.com/embed.js';
 
           s.setAttribute('data-timestamp', +new Date());
           (d.head || d.body).appendChild(s);
